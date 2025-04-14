@@ -19,8 +19,8 @@ export default function Header() {
             >
               <Image
                 src='/icons/cake-logo.png'
-                width={180}
-                height={50}
+                width={135}
+                height={135}
                 alt={`${APP_NAME} logo`}
               />
               {/* {APP_NAME} */}
