@@ -23,7 +23,7 @@ const productSchema = new Schema<IProduct>(
       required: true,
     },
     images: [String],
-    brand: {
+    flavour: {
       type: String,
       required: true,
     },
@@ -44,7 +44,7 @@ const productSchema = new Schema<IProduct>(
       required: true,
     },
     tags: { type: [String], default: ['new arrival'] },
-    colors: { type: [String], default: ['White', 'Red', 'Black'] },
+    shapes: { type: [String], default: ['White', 'Red', 'Black'] },
     sizes: { type: [String], default: ['S', 'M', 'L'] },
     avgRating: {
       type: Number,
