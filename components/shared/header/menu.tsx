@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import CartButton from './cart-button'
+import UserButton from './user-button'
 
 export default function Menu() {
   return (
@@ -7,9 +7,7 @@ export default function Menu() {
       <nav className='flex gap-3 w-full'>
         <CartButton />
 
-        <Link href='/signin' className='flex items-center header-button'>
-          Sign in
-        </Link>
+        <UserButton />
       </nav>
     </div>
   )
