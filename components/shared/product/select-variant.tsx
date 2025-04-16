@@ -5,13 +5,13 @@ import Link from 'next/link'
 export default function SelectVariant({
   product,
   size,
-  color,
+  shape,
 }: {
   product: IProduct
-  color: string
+  shape: string
   size: string
 }) {
-  const selectedColor = color || product.shapes[0]
+  const selectedShape = shape || product.shapes[0]
   const selectedSize = size || product.sizes[0]
 
   return (
@@ -24,7 +24,7 @@ export default function SelectVariant({
               asChild
               variant='outline'
               className={
-                selectedColor === x ? 'border-2 border-primary' : 'border-2'
+                selectedShape === x ? 'border-2 border-primary' : 'border-2'
               }
               key={x}
             >
@@ -32,7 +32,7 @@ export default function SelectVariant({
                 replace
                 scroll={false}
                 href={`?${new URLSearchParams({
-                  color: x,
+                  shape: x,
                   size: selectedSize,
                 })}`}
                 key={x}
@@ -63,7 +63,7 @@ export default function SelectVariant({
                 replace
                 scroll={false}
                 href={`?${new URLSearchParams({
-                  color: selectedColor,
+                  shape: selectedShape,
                   size: x,
                 })}`}
               >

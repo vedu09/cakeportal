@@ -31,11 +31,11 @@ export async function generateMetadata(props: {
 
 export default async function ProductDetails(props: {
   params: Promise<{ slug: string }>
-  searchParams: Promise<{ page: string; color: string; size: string }>
+  searchParams: Promise<{ page: string; shape: string; size: string }>
 }) {
   const searchParams = await props.searchParams
 
-  const { page, color, size } = searchParams
+  const { page, shape, size } = searchParams
 
   const params = await props.params
 
@@ -85,7 +85,7 @@ export default async function ProductDetails(props: {
               <SelectVariant
                 product={product}
                 size={size || product.sizes[0]}
-                color={color || product.shapes[0]}
+                shape={shape || product.shapes[0]}
               />
             </div>
             <Separator className='my-2' />
@@ -126,7 +126,7 @@ export default async function ProductDetails(props: {
                         quantity: 1,
                         image: product.images[0],
                         size: size || product.sizes[0],
-                        shape: color || product.shapes[0],
+                        shape: shape || product.shapes[0],
                       }}
                     />
                   </div>
