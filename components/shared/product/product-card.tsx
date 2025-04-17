@@ -86,6 +86,7 @@ const ProductCard = ({
           name: product.name,
           slug: product.slug,
           category: product.category,
+          flavour: product.flavour,
           price: round2(product.price),
           quantity: 1,
           image: product.images[0],
