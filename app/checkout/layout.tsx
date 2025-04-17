@@ -16,8 +16,8 @@ export default function CheckoutLayout({
             <Image
               src='/icons/cake-logo.png'
               alt='logo'
-              width={170}
-              height={170}
+              width={150}
+              height={150}
               style={{
                 maxWidth: '100%',
                 height: 'auto',
