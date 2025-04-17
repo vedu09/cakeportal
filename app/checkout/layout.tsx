@@ -24,9 +24,7 @@ export default function CheckoutLayout({
               }}
             />
           </Link>
-          <div>
-            <h1 className='text-3xl'>Checkout</h1>
-          </div>
+
           <div>
             <Link href='/page/help'>
               <HelpCircle className='w-6 h-6' />
@@ -34,6 +32,10 @@ export default function CheckoutLayout({
           </div>
         </div>
       </header>
+      <div>
+        <h1 className='text-3xl font-bold text-center my-6'>Checkout</h1>
+        <div className='border-t border-gray-300 shadow-md mx-auto w-3/4 mb-4'></div>
+      </div>
       {children}
     </div>
   )
