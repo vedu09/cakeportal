@@ -6,19 +6,26 @@ import { cwd } from 'process'
 import { loadEnvConfig } from '@next/env'
 import User from './models/user.model'
 import Review from './models/review.model'
+import WebPage from './models/web-page.model'
 
 loadEnvConfig(cwd())
 
 const main = async () => {
   try {
-    const { products, users, reviews } = data
+    const { products, users, reviews, webPages } = data
+
     await connectToDatabase(process.env.MONGODB_URI)
 
     await User.deleteMany()
     const createdUser = await User.insertMany(users)
 
+    await WebPage.deleteMany()
+    await WebPage.insertMany(webPages)
+
     await Product.deleteMany()
-    const createdProducts = await Product.insertMany(products)
+    const createdProducts = await Product.insertMany(
+      products.map((x) => ({ ...x, _id: undefined }))
+    )
 
     await Review.deleteMany()
     const rws = []
@@ -43,10 +50,25 @@ const main = async () => {
     }
     const createdReviews = await Review.insertMany(rws)
 
+    // await Order.deleteMany()
+    // const orders = []
+    // for (let i = 0; i < 200; i++) {
+    //   orders.push(
+    //     await generateOrder(
+    //       i,
+    //       createdUser.map((x) => x._id),
+    //       createdProducts.map((x) => x._id)
+    //     )
+    //   )
+    // }
+    // const createdOrders = await Order.insertMany(orders)
+
     console.log({
       createdUser,
       createdProducts,
       createdReviews,
+      // createdOrders,
+      // createdSetting,
       message: 'Seeded database successfully',
     })
     process.exit(0)
